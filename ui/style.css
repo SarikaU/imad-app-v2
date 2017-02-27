@@ -19,4 +19,16 @@ body {
 .img-medium {
     height: 200px;
 }
+.container {
+                           
+    max-width: 800px;
+    margin: 33px auto;
+    color: black;
+    padding-top: 30;
+    padding-left: 50;
+    padding-right: 50;
+    font-family: cursive;
+    background-color: #a1bfbf;
+    padding-bottom: 80;
+}                   
 
