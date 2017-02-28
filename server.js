@@ -6,22 +6,56 @@ var app = express();
 app.use(morgan('combined'));
 
 
-var ArticleOne = {
-    title: 'Article 1 Demo',
-    heading: 'Artcle 1',
-    date:'Feb 25, 2017',
-    content:` <p>
-                        This is the content of my first article.This is the content of my first article.This is the content of my first article.
-                        This is the content of my first article.This is the content of my first article.This is the content of my first article.
-                    </p>
-                    <p>
-                        Structuring the contents to display.Structuring the contents to display.Structuring the contents to display.
-                    </p>
-                    <p>
-                        Its a simple webpage.
-                    </p>`
+var Articles = {
+    
+    'article-1':{ 
+                    title: 'Article 1 Demo',
+                    heading: 'Artcle 1',
+                    date:'Feb 27, 2017',
+                    content:` <p>
+                                    This is the content of my first article.
+                              </p>
+                              <p>
+                                    Structuring the contents to display.
+                              </p>
+                              <p>
+                                     Its a simple webpage.
+                              </p>`
+        
+    },
+   ' article-2':{ 
+                    title: 'Article 2 Demo',
+                    heading: 'Artcle 2',
+                    date:'Feb 28, 2017',
+                    content:` <p>
+                                    This is the content of my second article.
+                              </p>
+                              <p>
+                                    Structuring the contents to display.
+                              </p>
+                              <p>
+                                    Its a simple webpage.
+                              </p>`
+
+    },
+   ' article-3':{ 
+                    title: 'Article 3 Demo',
+                    heading: 'Artcle 3',
+                    date:'March 01, 2017',
+                    content:` <p>
+                                    This is the content of my third article.
+                              </p>
+                              <p>
+                                    Structuring the contents to display.
+                              </p>
+                              <p>
+                                    Its a simple webpage.
+                              </p>`
+        
+    }
     
 };
+
 
 function createtemplate(data){
     
@@ -70,16 +104,9 @@ app.get('/', function (req, res) {
  
 });
 
-app.get('/article-1', function (req, res) {
-  res.send(createtemplate(ArticleOne));
-});
-
-app.get('/article-2', function (req, res) {
-  res.sendFile(path.join(__dirname,'ui','article-2.html'));
-});
-
-app.get('/article-3', function (req, res) {
- res.sendFile(path.join(__dirname,'ui','article-3.html'));
+app.get('/:ArticleName', function (req, res) {
+    var ArticleName = req.params.ArticleName;
+  res.send(createtemplate(Articles[ArticleName]));
 });
 
 
