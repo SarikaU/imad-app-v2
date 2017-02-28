@@ -1,6 +1,5 @@
 body {
     font-family: sans-serif;
-    background-color: lightgrey;
     margin-top: 75px;
 }
 
@@ -24,7 +23,6 @@ body {
     max-width: 800px;
     margin: 33px auto;
     color: black;
-    padding-top: 30;
     padding-left: 50;
     padding-right: 50;
     font-family: cursive;
