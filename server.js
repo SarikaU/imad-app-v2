@@ -66,11 +66,12 @@ return htmltemplate;
 
 
 app.get('/', function (req, res) {
-  res.send(createtemplate(ArticleOne));
+ res.sendFile(path.join(__dirname,'ui','index.html'));
+ 
 });
 
 app.get('/article-1', function (req, res) {
-  res.sendFile(path.join(__dirname,'ui','article-1.html'));
+  res.send(createtemplate(ArticleOne));
 });
 
 app.get('/article-2', function (req, res) {
