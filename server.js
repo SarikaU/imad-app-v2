@@ -6,7 +6,7 @@ var app = express();
 app.use(morgan('combined'));
 
 
-var Articles = {
+var articles = {
     
     'article-1':{ 
                     title: 'Article 1 Demo',
@@ -57,7 +57,7 @@ var Articles = {
 };
 
 
-function createtemplate(data){
+function createTemplate(data){
     
 var title = data.title;
 var heading = data.heading;
@@ -65,7 +65,7 @@ var date = data.date;
 var content = data.content;
 
 
-var htmltemplate = `<html>
+var htmlTemplate = `<html>
     
     <head>
           <title>
@@ -95,7 +95,7 @@ var htmltemplate = `<html>
 
 </html>`
 ;
-return htmltemplate;
+return htmlTemplate;
 }
 
 
@@ -104,9 +104,9 @@ app.get('/', function (req, res) {
  
 });
 
-app.get('/:ArticleName', function (req, res) {
-    var ArticleName = req.params.ArticleName;
-  res.send(createtemplate(Articles[ArticleName]));
+app.get('/:articleName', function (req, res) {
+    var articleName = req.params.articleName;
+  res.send(createTemplate(articles[articleName]));
 });
 
 
