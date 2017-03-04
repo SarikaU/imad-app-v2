@@ -30,7 +30,7 @@
       //make a request
 
 request.open('GET','http://sarikau.imad.hasura-app.io/counter',true);
-request.send(null)
+request.send(null);
       
      
  };     
