@@ -23,7 +23,6 @@
      
           if(request.status ===200){   
               
-              
           
                    var counter= request.responseText;         
                    var span=document.getElementById('count');
@@ -34,12 +33,10 @@
      
  }; 
   
-  
-      //make a request
+   //make a request
 
 request.open('GET','http://sarikau.imad.hasura-app.io/counter',true);
 request.send(null);
-      
      
  };     
 
