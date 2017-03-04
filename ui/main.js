@@ -11,13 +11,23 @@
     
     //Capture the response and store it in a variable
     
- request.onreadystatechange = function(){            //if request state changes then execute this function
- 
-     if (request.readyState === XMLHttpRequest.DONE){  //checks the req current state & if its XMLHttpRequest.Done(req successfully completed,                                                we want to take some action .If req not done yet,then ignore)
+   
+    
+ request.onreadystatechange = function(){           
+       //if request state changes then execute this function
      
-          if(request.status ===200){                  //if req status is 200,req is successfully completed
+ 
+     if (request.readyState === XMLHttpRequest.DONE){  
+         
+        //checks the req current state & if its XMLHttpRequest.Done(req successfully completed,                                                we want to take some action .If req not done yet,then ignore)
+     
+          if(request.status ===200){   
+              
+               //if req status is 200,req is successfully completed
+               
+                //gives access to the response value
           
-                   var counter= request.responseText;          //gives access to the response value
+                   var counter= request.responseText;         
                    var span=document.getElementById('count');
                    span.innerHTML=counter.toString();
           }
