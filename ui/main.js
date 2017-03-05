@@ -53,7 +53,7 @@ request.send(null);
  for(var i=0; i< names.length; i++){
      list += '<li>'+names[i]+'</li>';
  }
- var ul =get.documentElementById('namelist');
+ var ul =document.getElementById('namelist');
  ul.innerHTML=list;
  
  };
