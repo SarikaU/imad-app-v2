@@ -9,7 +9,7 @@ var config = {
   database:'sarikau',
   host: 'db.imad.hasura-app.io',
   port:'5432',
-  password:process.env.DB-PASSWORD //use the env variable avb called dbpassword
+  password:process.env.DB_PASSWORD //use the env variable avb called dbpassword
 };
 
 var app = express();
