@@ -9,7 +9,7 @@ var config = {
   database:'sarikau',
   host:'db.imad.hasura-app.io',
   port:'5432',
-  password:process.env.db_password //use the env variable avb called dbpassword
+  password:'db-sarikau-28174' //use the env variable avb called dbpassword
 };
 
 var app = express();
@@ -147,9 +147,23 @@ app.get('/submit-name', function (req, res) {  //submit-name?name=xxxxx
   res.send(JSON.stringify(names));
 });
 
-app.get('/:articleName', function (req, res) {
-    var articleName = req.params.articleName;
-  res.send(createTemplate(articles[articleName]));
+app.get('/articles/:articleName', function (req, res) {
+   
+    pool.query("SELECT * FROM article WHERE title=" +req.params.articleNam,function(err,result){
+        if (err){
+            res.status(500).send(err.toString());
+        }
+        else{
+            if (result.rows.length===0){
+                res.status(404).send('Article Not Found');
+            }else{
+                var articleData=reult.rows[0];
+                res.send(createTemplate(articles[articleName]));
+            }
+           
+        }
+    });
+    
 });
 
 
